@@ -4,13 +4,13 @@ services:
     build:
       context: .
       args:
-        UPSTREAM_VERSION: 1.25.4
-    image: "nethermind.goerli-nethermind.dnp.dappnode.eth:1.0.9"
+        UPSTREAM_VERSION: 1.26.0
+    image: nethermind.goerli-nethermind.dnp.dappnode.eth:1.0.9
     restart: unless-stopped
     security_opt:
-      - "seccomp:unconfined"
+      - seccomp:unconfined
     volumes:
-      - "data:/data"
+      - data:/data
     environment:
       MODE: normal
       NETHERMIND_SYNCCONFIG_FASTSYNC: "true"
@@ -26,8 +26,8 @@ services:
       LOG: INFO
       EXTRA_OPTS: ""
     ports:
-      - "30804:30804/udp"
-      - "30804:30804/tcp"
+      - 30804:30804/udp
+      - 30804:30804/tcp
     ulimits:
       nofile:
         soft: 1000000
